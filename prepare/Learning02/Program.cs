@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
@@ -10,7 +11,7 @@ class Program
         job1._startYear = 2017;
         job1._endYear = 2023;
 
-        job1.DisplayJobDetails();
+        //job1.DisplayJobDetails();
         
 
         Job job2 = new Job();
@@ -19,6 +20,15 @@ class Program
         job2._startYear = 2020;
         job2._endYear = 2023;
 
-        job2.DisplayJobDetails();
+        //job2.DisplayJobDetails();
+
+        
+        Resume myResume = new Resume();
+        myResume._fullName = "John Ihuoma Anochirionye";
+        myResume._jobs.Add(job1);
+        myResume._jobs.Add(job2);  
+           
+        myResume.Display();
+
     }
 }
