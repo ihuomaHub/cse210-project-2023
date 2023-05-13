@@ -12,16 +12,24 @@ class Program
        options._quit = "Quit";
 
        
+      
+       
 
-       options.displayWelcomeNote();
+       RandomQuestions questions = new RandomQuestions();
+       questions._promptQuestion1 = "What was the best part of my day";
+       questions._promptQuestion2 = "If there is something you need to change today, what will that be?";
+       questions._promptQuestion3 = "What kind act did I exhibit today?";
+       questions._promptQuestion4 = "What shall I be grateful for today?";
+       questions._promptQuestion5 = "What service did I render today?";
+
+
+       options.display();
 
        options.displayMenuOptions();
 
-       Entry prompt = new Entry();
-       
-       prompt._menuPrompt = Console.ReadLine();
+       options.displayPrompt();
 
-       prompt.displayMenuPrompt();
+       //questions.displayRandomQuestions();
 
 
     }

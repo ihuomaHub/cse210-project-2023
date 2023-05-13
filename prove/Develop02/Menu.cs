@@ -2,14 +2,17 @@ public class Menu
 {
     public string _write;
     public string _display;
-    public string _load;
+    public  string _load;
     public string _save;
     public string _quit;
-    
-    public void displayWelcomeNote()
+
+    //ublic string _menuPrompt = "userInput";
+
+    public void display()
     {
-        Console.WriteLine("Welcome to the Journal Program!");
+        Console.WriteLine("WELCOME TO THE JOURNAL PROGRAM!");
     }
+
     public void displayMenuOptions()
     {
         Console.WriteLine("Please select one of the following choices;");
@@ -18,5 +21,13 @@ public class Menu
         Console.WriteLine($"3. {_load}");
         Console.WriteLine($"4. {_save}");
         Console.WriteLine($"5. {_quit}");
+
     }
+
+    public void displayPrompt()
+    {
+        Console.Write($"What would you like to do? ");
+        string userInput = Console.ReadLine();
+    }
+    
 }
