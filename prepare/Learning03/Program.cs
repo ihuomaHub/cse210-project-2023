@@ -5,9 +5,13 @@ class Program
     static void Main(string[] args)
     {
         Fraction fraction = new Fraction();
-        fraction._top = 6;
-        fraction._bottom = 7;
-        
-        fraction.displayFraaction();     
+        fraction.GetTop();
+        fraction.GetBottom();
+        fraction.SetTop(1);
+        fraction.SetBottom(3);
+
+        fraction.displayFractionalString();   
+
+        fraction.displayDecimalValue();  
     }
 }
