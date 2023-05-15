@@ -6,6 +6,8 @@ public class Menu
     public string _save;
     public string _quit;
 
+    public string _userInput;
+
     //ublic string _menuPrompt = "userInput";
 
     public void display()
@@ -23,11 +25,13 @@ public class Menu
         Console.WriteLine($"5. {_quit}");
 
     }
+    
 
     public void displayPrompt()
     {
         Console.Write($"What would you like to do? ");
-        string userInput = Console.ReadLine();
+        Console.Write($"{_userInput}");
+   
     }
     
 }

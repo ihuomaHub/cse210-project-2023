@@ -1,5 +1,6 @@
 using System;
 
+
 class Program
 {
     static void Main(string[] args)
@@ -11,16 +12,22 @@ class Program
        options._save = "Save";
        options._quit = "Quit";
 
-       
-      
+       options._userInput = Console.ReadLine();
+
+       PromptQuestion question = new PromptQuestion();
+       question._question1 = "If I had one thing I could do over today, what would it be? ";
+       question._question2 = "What was the best part of my day? ";
+       question._question3 = "What good have I done today? ";
+       question._question4 = "What blessing am I grateful for today? ";
+       question._question5 = "Who did I reach out today? ";
+
+       PromptGenerator prompt = new PromptGenerator();
+       prompt._prompt.Add(question);
+
+       Journal entry = new Journal();
+       entry._write = Console.ReadLine();
        
 
-       RandomQuestions questions = new RandomQuestions();
-       questions._promptQuestion1 = "What was the best part of my day";
-       questions._promptQuestion2 = "If there is something you need to change today, what will that be?";
-       questions._promptQuestion3 = "What kind act did I exhibit today?";
-       questions._promptQuestion4 = "What shall I be grateful for today?";
-       questions._promptQuestion5 = "What service did I render today?";
 
 
        options.display();
@@ -29,7 +36,11 @@ class Program
 
        options.displayPrompt();
 
-       //questions.displayRandomQuestions();
+       
+
+       prompt.displayPromptGenerator();
+
+       entry.displayJournal();
 
 
     }

@@ -1,5 +1,10 @@
 public class PromptGenerator
 {
-    //public List<PromptQuestion> _promptQuestion = new List<PromptQuestion>();
- 
+    
+    public List<PromptQuestion> _prompt = new List<PromptQuestion>();
+
+    public void displayPromptGenerator()
+    {
+        Console.WriteLine(_prompt);
+    }
 }

@@ -4,6 +4,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Learning03 World!");
+        Fraction fraction = new Fraction();
+        fraction._top = 6;
+        fraction._bottom = 7;
+        
+        fraction.displayFraaction();     
     }
 }
