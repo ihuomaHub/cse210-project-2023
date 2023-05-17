@@ -12,6 +12,8 @@ class Program
 
         fraction.displayFractionalString();   
 
-        fraction.displayDecimalValue();  
+        fraction.displayDecimalValue(); 
+
+       
     }
 }

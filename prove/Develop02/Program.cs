@@ -1,47 +1,71 @@
 using System;
+using System.Collections.Generic;
 
 
 class Program
 {
     static void Main(string[] args)
     {
-       Menu options = new Menu();
-       options._write = "Write";
-       options._display = "Display";
-       options._load = "Load";
-       options._save = "Save";
-       options._quit = "Quit";
+        MenuOptions options = new MenuOptions();
+        options._write = "1. Write";
+        options._display = "2. Display";
+        options._load = "3. Load";
+        options._save = "4. Save";
+        options._quit = "5. Quit";
 
-       options._userInput = Console.ReadLine();
+        RandomPromptGenerator promptGenerator = new RandomPromptGenerator();
+        
+        
+        List<JournalEntry> journalEntries = new List<JournalEntry>();
+        
 
-       PromptQuestion question = new PromptQuestion();
-       question._question1 = "If I had one thing I could do over today, what would it be? ";
-       question._question2 = "What was the best part of my day? ";
-       question._question3 = "What good have I done today? ";
-       question._question4 = "What blessing am I grateful for today? ";
-       question._question5 = "Who did I reach out today? ";
+        Menu menu1 = new Menu();
+        menu1._welcomeNote = "WELCOME TO THE JOURNAL PROGRAM!";
+        menu1._menuOptions.Add(options);
+        
+        menu1.DisplayWecomeNote();
 
-       PromptGenerator prompt = new PromptGenerator();
-       prompt._prompt.Add(question);
+        while (true)
+        {
+            menu1.Display();
+            menu1._userResponse = Console.ReadLine();
 
-       Journal entry = new Journal();
-       entry._write = Console.ReadLine();
-       
-
-
-
-       options.display();
-
-       options.displayMenuOptions();
-
-       options.displayPrompt();
-
-       
-
-       prompt.displayPromptGenerator();
-
-       entry.displayJournal();
-
-
+            if (menu1._userResponse == "1")
+            {
+                string randomPrompt = promptGenerator.GenerateRandomPrompt();
+                Console.WriteLine(randomPrompt);
+                string response = Console.ReadLine();
+                DateTime entryDate = DateTime.Now;
+                JournalEntry newEntry = new JournalEntry ();
+                newEntry._entryDate = entryDate;
+                newEntry._randomPrompt = randomPrompt;
+                newEntry._response = response;
+                journalEntries.Add(newEntry);
+            }
+            else if (menu1._userResponse == "2")
+            {
+                DisplayAllJournalEntries(journalEntries);
+                Console.ReadLine();
+            }
+            else if (menu1._userResponse != "1" && menu1._userResponse !="2")
+            {
+                break;
+            }
+        }
+        
+    }
+    static void DisplayAllJournalEntries(List<JournalEntry> entries)
+    
+    {
+        Console.WriteLine("All Journal Entries");
+        foreach (JournalEntry entry in entries)
+        {
+            Console.WriteLine($"Entry Date: {entry._entryDate.ToString()}");
+            Console.WriteLine($"Prompt Question: {entry._randomPrompt}");
+            Console.WriteLine($"Response: {entry._response}");
+            Console.WriteLine();
+        }
     }
 }
+
+    

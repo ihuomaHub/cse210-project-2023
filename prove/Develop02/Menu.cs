@@ -1,37 +1,33 @@
 public class Menu
 {
-    public string _write;
-    public string _display;
-    public  string _load;
-    public string _save;
-    public string _quit;
+    public string _welcomeNote;
+    public string _menuPrompt;
 
-    public string _userInput;
-
-    //ublic string _menuPrompt = "userInput";
-
-    public void display()
-    {
-        Console.WriteLine("WELCOME TO THE JOURNAL PROGRAM!");
-    }
-
-    public void displayMenuOptions()
-    {
-        Console.WriteLine("Please select one of the following choices;");
-        Console.WriteLine($"1. {_write}");
-        Console.WriteLine($"2. {_display}");
-        Console.WriteLine($"3. {_load}");
-        Console.WriteLine($"4. {_save}");
-        Console.WriteLine($"5. {_quit}");
-
-    }
+    public string _userResponse;
     
+    public List<MenuOptions> _menuOptions  = new List<MenuOptions>();
+    public string _promptGenerator;
 
-    public void displayPrompt()
-    {
-        Console.Write($"What would you like to do? ");
-        Console.Write($"{_userInput}");
-   
-    }
     
+    public void DisplayWecomeNote()
+    {
+        Console.WriteLine();
+        Console.WriteLine($"{_welcomeNote}");
+        Console.WriteLine();
+    }
+
+    public void Display()
+        
+    {
+        foreach (MenuOptions option in _menuOptions)
+        {
+            Console.WriteLine("Please select one of these choices:");
+            option.Display();
+
+        }
+        Console.Write("What would you like to do? ");
+        
+
+    }
+
 }
