@@ -11,7 +11,10 @@ public class RandomPromptGenerator
             "What was the best part of my day?",
             "What good have I done in the world today?",
             "If I had one thing I could do over today, what would it be?",
-            "What blessings are my grateful for?"
+            "What blessings am I grateful for?",
+            "What scriptural passage(s) motivates you today",
+            "What was I inspired to do today?"
+
         };
     }
 

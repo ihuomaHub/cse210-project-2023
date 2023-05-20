@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 
 class Program
@@ -36,7 +37,7 @@ class Program
                 Console.WriteLine(randomPrompt);
                 string response = Console.ReadLine();
                 DateTime entryDate = DateTime.Now;
-                JournalEntry newEntry = new JournalEntry ();
+                JournalEntry newEntry = new JournalEntry();
                 newEntry._entryDate = entryDate;
                 newEntry._randomPrompt = randomPrompt;
                 newEntry._response = response;
@@ -44,10 +45,23 @@ class Program
             }
             else if (menu1._userResponse == "2")
             {
+                Console.WriteLine();
                 DisplayAllJournalEntries(journalEntries);
                 Console.ReadLine();
             }
-            else if (menu1._userResponse != "1" && menu1._userResponse !="2")
+            else if (menu1._userResponse =="3")
+            {
+                Console.Write("Enter the filename to load the journal entries from: ");
+                string fileName = Console.ReadLine();
+                journalEntries = LoadJournal.LoadJournalEntries(fileName);
+            }
+            else if (menu1._userResponse == "4")
+            {
+                Console.Write("Please enter the filename to save journal enteries: ");
+                string fileName = Console.ReadLine();
+                SaveJournal.SaveJournalEntries(journalEntries, fileName);
+            }
+            else if (menu1._userResponse == "5")
             {
                 break;
             }
