@@ -74,6 +74,7 @@ class Program
         Console.WriteLine("All Journal Entries");
         foreach (JournalEntry entry in entries)
         {
+            Console.WriteLine();
             Console.WriteLine($"Entry Date: {entry._entryDate.ToString()}");
             Console.WriteLine($"Prompt Question: {entry._randomPrompt}");
             Console.WriteLine($"Response: {entry._response}");
