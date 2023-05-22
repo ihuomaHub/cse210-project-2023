@@ -8,6 +8,6 @@ public class Word
     public Word(string text)
     {
         this.text = text;
-        ti
+        this.isVisible = IsVisible;
     }
 }
