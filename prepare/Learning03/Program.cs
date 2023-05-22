@@ -7,10 +7,10 @@ class Program
         Fraction fraction = new Fraction();
         fraction.GetTop();
         fraction.GetBottom();
-        fraction.SetTop(1);
-        fraction.SetBottom(3);
+        fraction.SetTop(5);
+        fraction.SetBottom(5);
 
-        fraction.displayFractionalString();   
+        fraction.displayFractionalString(); 
 
         fraction.displayDecimalValue(); 
 
