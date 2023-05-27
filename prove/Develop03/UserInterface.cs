@@ -1,13 +1,17 @@
 using System;
 public class UserInterface
 {
-    public static void DisplayMessage(string message)
+    public static void DisplayScripture(Scripture scripture)
     {
-        Console.WriteLine(message);
+        Console.WriteLine(scripture.GetFormattedText());
     }
 
     public static string GetUserInput()
     {
         return Console.ReadLine();
+    }
+    public static void ClearScreen()
+    {
+        Console.Clear();
     }
 }

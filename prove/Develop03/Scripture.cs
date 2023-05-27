@@ -6,30 +6,42 @@ public class Scripture
     private List<Word> words;
     private Reference reference;
 
-    public List<Word> Words { get {return words; }}
-    public Reference Reference { get {return reference}}
-
+    
     public Scripture(Reference reference, string text)
     {
-        this.refernce = reference;
+        this.reference = reference;
         this.words = new List<Word>();
 
         string[] wordArray = text.Split(' ');
-        foreach (string WordText in wordArray)
+        foreach (string wordText in wordArray)
         {
-            Word word = new Word(wordText);
-            words.Add(word);
+            if (!string.IsNullOrWhiteSpace(wordText))
+            {
+                string sanitizedWordText = wordText.Trim(',', ';', '.');
+                Word word = new Word(sanitizedWordText);
+                words.Add(word);
+
+                if (wordText.EndsWith(",") || wordText.EndsWith(";") || wordText.EndsWith("."))
+                {
+                    //Adding word with only punctuation mark
+                    string punctuationMark = wordText.Substring(wordText.Length - 1);
+                    Word punctuationWord = new Word(punctuationMark);
+                    words.Add(punctuationWord);
+                }
+            }
         }
     }
-
-    public string GetRendaredText()
+    public void HideRandomWord()
     {
-        string renderedText = " ";
-        foreach (Word word in words)
+        List<Word> visibleWords = GetVisibleWords();
+        if (visibleWords.Count > 0)
         {
-            renderedText += word.GetRenderedText() + " ";
+            List<Word> wordsToHide = RandomWordSelector.SelectRandomWords(visibleWords, 1);
+            foreach (Word word in wordsToHide)
+            {
+                word.Hide();
+            }
         }
-        return renderedText.TrimEnd();
     }
 
     public bool IsCompletelyHidden()
@@ -40,7 +52,50 @@ public class Scripture
             {
                 return false;
             }
-            return true;
+            
         }
+        return true;
+    }
+
+    public string GetFormattedText()
+    {
+        string formattedText = $"{reference.GetFormattedReference()} {Environment.NewLine}";
+        bool addSpace = true;
+
+        foreach (Word word in words)
+        {
+            if (word.GetRenderedText() == "," || word.GetRenderedText() == ";" || word.GetRenderedText() == ".")
+            {
+                formattedText += word.GetRenderedText();
+            }
+            else
+            {
+                if(addSpace)
+                {
+                    formattedText += " ";
+                }
+                formattedText += word.GetRenderedText();
+                addSpace = true;
+            }
+            if (word.GetRenderedText() == "," || word.GetRenderedText() == ";" || word.GetRenderedText() == ".")
+            {
+                addSpace = false;
+            }
+        }
+        return formattedText;
+        
+    }
+    private List<Word> GetVisibleWords()
+    {
+         List<Word> visibleWords = new List<Word>();
+            foreach (Word word in words)
+            {
+                if(word.IsVisible)
+                
+                {
+                    visibleWords.Add(word);
+                }
+            }
+            return visibleWords;
     }
 }
