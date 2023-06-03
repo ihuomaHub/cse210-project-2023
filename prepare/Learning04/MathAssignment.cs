@@ -4,10 +4,6 @@ public class MathAssignment : Assignment
     private string _textbookSection = "";
     private string _problem = "";
 
-    public MathAssignment () : base()
-    {
-
-    }
 
     public MathAssignment(string studentName, string topic, string textbookSection, string problem) : base(studentName, topic)
     {

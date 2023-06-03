@@ -1,9 +1,10 @@
 using System;
-public class WritingAssignment : Assignment
+public class WritingAssignment
 {
-    protected _title = "";
+    protected string _title = "";
 
-    Public string GetTitle()
+    
+    public string GetTitle()
     {
         return _title;
     }
