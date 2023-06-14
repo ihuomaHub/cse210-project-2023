@@ -1,4 +1,4 @@
-class ReflectionActivity : Activity
+class ReflectionActivity : Mindfullness
 {
     private string[] prompts = {
         "Think of a time when you stood up for someone else.",

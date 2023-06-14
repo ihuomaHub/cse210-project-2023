@@ -1,4 +1,4 @@
-class BreathingActivity : Activity
+class BreathingActivity : Mindfullness
 {
     public BreathingActivity()
     {
@@ -16,3 +16,4 @@ class BreathingActivity : Activity
         Console.WriteLine("Breathe out...");
         PauseWithSpinner(Duration);
     }
+}

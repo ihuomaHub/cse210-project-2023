@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 
-public class Activity
+public class Mindfullness
 {
     public string ActivityName { get; protected set; }
     public string Description { get; protected set; }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public class ListingActivity : Mindfullness
 {
-    private string areaOfReflection;
-    private List<string> promptOptions;
-    private int itemCounter;
+    protected string areaOfReflection;
+    protected List<string> promptOptions;
+    protected int itemCounter;
 
     public ListingActivity()
     {
