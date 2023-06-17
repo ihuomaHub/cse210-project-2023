@@ -1,20 +1,18 @@
 public class Shape
 {
-    private string _color;
+    protected string color;
 
-    public string Color
+    public string GetColor()
     {
-        get { return _color; }
-        set { _color = value; }
+        return color;
     }
-
-    public Shape(string color)
+    public void SetColor(string value)
     {
-        _color = color;
+        color = value;
     }
-
     public virtual double GetArea()
     {
         return 0;
     }
+
 }
