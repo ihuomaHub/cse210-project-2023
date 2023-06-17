@@ -1,14 +1,14 @@
-public class Shape
+public abstract class Shape
 {
     protected string color;
 
-    public string GetColor()
+    public Shape(string Color)
+    {
+         color = Color;
+    }
+    public virtual string GetColor()
     {
         return color;
-    }
-    public void SetColor(string value)
-    {
-        color = value;
     }
     public virtual double GetArea()
     {
