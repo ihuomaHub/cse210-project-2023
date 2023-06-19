@@ -4,25 +4,24 @@ class Program
 {
     static void Main(string[] args)
     {
-        Square square = new Square("Yellow", 5.0);
+       List<Shape> shapes = new List<Shape>();
+       
+       Circle circle = new Circle("Green", 5.0);
+       Square square = new Square("Yellow", 6.0);
+       Rectangle rectangle = new Rectangle("Blue", 10.0, 5.0);
+       
+       
+       shapes.Add(square);
+       shapes.Add(rectangle);
+       shapes.Add(circle);
 
-        Rectangle rectangle = new Rectangle("Blue", 10.0, 5.0);
+       foreach (Shape shape in shapes)
+       {
+            string color = shape.GetColor();
 
-        Circle circle = new Circle("Green", 5.0);
+            double area = shape.GetArea();
 
-        DisplayShapeInformation(square);
-        DisplayShapeInformation(rectangle);
-        DisplayShapeInformation(circle);
-    }
-    public static void DisplayShapeInformation(Shape shape)
-    {
-        string shapeName = shape.GetType().Name;
-        Console.WriteLine($"shape: {shapeName}");
-
-        string color = shape.GetColor();
-        Console.WriteLine($"Color: {color}");
-
-        double area = shape.GetArea();
-        Console.WriteLine($"Area: {area}");
+            Console.WriteLine($"The {color} shape has an area of {area}");
+       }
     }
 }
