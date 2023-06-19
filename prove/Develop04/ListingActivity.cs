@@ -9,8 +9,8 @@ public class ListingActivity : Mindfullness
 
     public ListingActivity()
     {
-        ActivityName = "Listing Activity";
-        Description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
+        activityName = "Listing Activity";
+        description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
     }
 
     public void SetAreaOfReflection(string area)
@@ -30,8 +30,8 @@ public class ListingActivity : Mindfullness
 
     public string GetRandomPrompt()
     {
-        Random random = new Random();
-        return promptOptions[random.Next(promptOptions.Count)];
+       
+        return promptOptions[new Random().Next(promptOptions.Count)];
     }
 
     public override void RunActivity()
@@ -42,7 +42,7 @@ public class ListingActivity : Mindfullness
         PauseWithSpinner(2);
 
         itemCounter = 0;
-        while (itemCounter < Duration)
+        while (itemCounter < duration)
         {
             Console.WriteLine("Enter an item for reflection:");
             string item = Console.ReadLine();

@@ -2,8 +2,8 @@ class BreathingActivity : Mindfullness
 {
     public BreathingActivity()
     {
-        ActivityName = "Breathing Activity";
-        Description = "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.";
+        activityName = "Breathing Activity";
+        description = "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.";
     }
 
     public override void RunActivity()
@@ -11,9 +11,9 @@ class BreathingActivity : Mindfullness
         base.RunActivity();
 
         Console.WriteLine("Breathe in...");
-        PauseWithSpinner(Duration);
+        PauseWithSpinner(duration);
 
         Console.WriteLine("Breathe out...");
-        PauseWithSpinner(Duration);
+        PauseWithSpinner(duration);
     }
 }
