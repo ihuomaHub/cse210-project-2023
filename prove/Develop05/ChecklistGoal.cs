@@ -1,23 +1,23 @@
 public class ChecklistGoal : Goal
 {
-    private int _completionCount = 0;
-    private int _targetCount;
-    private int _bonusPoints;
+    private int completionCount = 0;
+    private int targetCount;
+    private int bonusPoints;
 
     public ChecklistGoal(string name, string description, int points, int completionCount, int targetCount, int bonusPoints) : base(name, description, points)
     {
-        _completionCount = completionCount;
-        _targetCount = targetCount;
-        _bonusPoints = bonusPoints;
+        this.completionCount = completionCount;
+        this.targetCount = targetCount;
+        this.bonusPoints = bonusPoints;
     }
 
     public override int RecordEvent()
     {
-        _completionCount++;
-        if (_completionCount == _targetCount)
+        completionCount++;
+        if (this.completionCount == this.targetCount)
         {
-            _completionCount = 0;
-            return Points + _bonusPoints;
+            this.completionCount = 0;
+            return Points + this.bonusPoints;
         }
 
         else
@@ -27,7 +27,7 @@ public class ChecklistGoal : Goal
     }
     public override bool IsComplete()
     {
-        return _completionCount == _targetCount;
+        return this.completionCount == this.targetCount;
     }
     
 }
